@@ -1,20 +1,19 @@
 "use client"
 
-import React, { useEffect, useRef, useState,useCallback } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useSidenav } from "@/context/sidenavContext";
 import {
   ChevronDownIcon,
   HorizontaLDots,
   GridIcon,
   SignOutIcon,
   LogoIcon,
+  Logo,
 } from "@/ui/icons";
-import Button from "../components/button";
-import { SignOut } from "@/lib/actions";
 
+import React, { useEffect, useRef, useState,useCallback } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSidenav } from "@/context/sidenavContext";
+import { SignOut } from "@/lib/actions";
 
 type NavItem = {
   name: string;
@@ -257,16 +256,14 @@ const Sidenav: React.FC = () => {
         <Link href="/">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
-              <Image
+              <Logo 
                 className="dark:hidden"
-                src="logo.svg"
                 alt="Logo"
                 width={150}
                 height={40}
               />
-              <Image
+              <Logo
                 className="hidden dark:block"
-                src="logo.svg"
                 alt="Logo"
                 width={150}
                 height={40}

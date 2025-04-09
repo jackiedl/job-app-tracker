@@ -42,19 +42,19 @@ export default function RegisterModal() {
         <form action={formAction}>
           <div className="space-y-6">
             <div>
-              <label>
+              <label className="text-gray-800 dark:text-white/90">
                 Name <span className="text-error-500">*</span>{" "}
               </label>
               <Input placeholder="John Doe" type="name" id="name" name="name" />
             </div>
             <div>
-              <label>
+              <label className="text-gray-800 dark:text-white/90">
                 Email <span className="text-error-500">*</span>{" "}
               </label>
               <Input placeholder="johndoe98@gmail.com" type="email" id="email" name="email" />
             </div>
             <div>
-              <label>
+              <label className="text-gray-800 dark:text-white/90">
                 Password <span className="text-error-500">*</span>{" "}
               </label>
               <div className="relative">

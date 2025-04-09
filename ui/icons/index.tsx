@@ -7,6 +7,7 @@ import EyeCloseIcon from "./eye-close.svg";
 import GridIcon from "./grid.svg";
 import GroupIcon from "./group.svg";
 import HorizontaLDots from "./horizontal-dots.svg";
+import Logo from "./logo.svg";
 import LogoIcon from "./logo_icon.svg";
 import PageIcon from "./page.svg";
 import PencilIcon from "./pencil.svg";
@@ -25,6 +26,7 @@ export {
   GridIcon,
   GroupIcon,
   HorizontaLDots,
+  Logo,
   LogoIcon,
   PageIcon,
   PencilIcon,

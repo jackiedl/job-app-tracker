@@ -12,12 +12,13 @@ export default function LoginNav() {
               Welcome to Trackr
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Login or Signup to begin your application tracking journey!
+              Login or Register to begin your application tracking journey!
             </p>
           </div>
           <div>
-            <div className="flex justify-center">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5">
               <LoginModal />
+              <RegisterModal />
             </div>
             <div className="relative py-3 sm:py-5">
               <div className="absolute inset-0 flex items-center">
@@ -25,12 +26,9 @@ export default function LoginNav() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="p-2 text-gray-400 bg-white dark:bg-gray-900 sm:px-5 sm:py-2">
-                  Or
+                  
                 </span>
               </div>
-            </div>
-            <div className="flex justify-center">
-              <RegisterModal />
             </div>
           </div>
         </div>

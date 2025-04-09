@@ -1,10 +1,9 @@
 "use client"
 import React, { useState } from "react";
-import { Modal, useModal } from "../components/modal";
-import Button from "../components/button";
-import { EyeCloseIcon, EyeIcon, UserCircleIcon } from "../icons";
-import Input from "../components/input";
-import Link from "next/link";
+import { Modal, useModal } from "@/ui/components/modal"
+import Button from "@/ui/components/button";
+import { EyeCloseIcon, EyeIcon, UserCircleIcon } from "@/ui/icons";
+import Input from "@/ui/components/input";
 import { useActionState } from "react";
 import { authenticate } from "@/lib/actions";
 import { useSearchParams } from "next/navigation";
@@ -44,13 +43,13 @@ export default function LoginModal() {
         <form action={formAction} >
           <div className="space-y-6">
             <div>
-              <label>
+              <label className="text-gray-800 dark:text-white/90">
                 Email <span className="text-error-500">*</span>{" "}
               </label>
               <Input placeholder="info@gmail.com" type="email" id="email" name="email" />
             </div>
             <div>
-              <label>
+              <label className="text-gray-800 dark:text-white/90">
                 Password <span className="text-error-500">*</span>{" "}
               </label>
               <div className="relative">
@@ -73,12 +72,9 @@ export default function LoginModal() {
               </div>
             </div>
             <div className="flex items-center justify-between">
-              <Link
-                href="/reset-password"
-                className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
-              >
+              {/* <p className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400">
                 Forgot password?
-              </Link>
+              </p> */}
             </div>
             <div>
               <input type="hidden" name="redirectTo" value={callbackUrl} />

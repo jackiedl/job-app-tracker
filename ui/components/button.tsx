@@ -2,11 +2,11 @@ import React, { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode; // Button text or content
-  size?: "sm" | "md"; // Button size
   startIcon?: ReactNode; // Icon before the text
   endIcon?: ReactNode; // Icon after the text
   onClick?: () => void; // Click handler
   className?: string; // Disabled state
+  type?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({

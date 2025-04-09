@@ -4,7 +4,6 @@ import GridShape from "@/ui/components/gridshape";
 import { ThemeToggleButton } from "@/ui/components/themeButton";
 import LoginNav from "@/ui/home/loginNav";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,14 +15,13 @@ export default function Home() {
               {/* <!-- ===== Common Grid Shape Start ===== --> */}
               <GridShape />
               <div className="flex flex-col items-center max-w-xs">
-                <Link href="/" className="block mb-4">
-                  <Image
-                    width={231}
-                    height={48}
-                    src="./logo.svg"
-                    alt="Logo"
-                  />
-                </Link>
+                <Image
+                  width={231}
+                  height={48}
+                  src="./logo.svg"
+                  alt="Logo"
+                  className="block mb-4"
+                />
                 <p className="text-center text-gray-400 dark:text-white/60">
                   Full Stack Job Application Tracker
                 </p>

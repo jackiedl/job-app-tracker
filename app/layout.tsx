@@ -5,8 +5,11 @@ import { SidenavProvider } from "@/context/sidenavContext";
 import { ThemeProvider } from "@/context/themeContext";
 
 export const metadata: Metadata = {
-  title: "Trackr",
-  description: "Easy to use Full Stack Job Application Tracker created by Jackie",
+  title: {
+    template: '%s | Trackr',
+    default: 'Trackr',
+  },
+  description: 'Easy to use Full Stack Job Application Tracker created by Jackie',
 };
 
 export default function RootLayout({
