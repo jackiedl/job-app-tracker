@@ -34,6 +34,7 @@ const ApplicationFormSchema = z.object({
 const AddApplication = ApplicationFormSchema.omit({id: true, user_id:true, date:true})
 
 export type State = {
+  message?: string | null;
 };
 
 export type ApplicationState = {
