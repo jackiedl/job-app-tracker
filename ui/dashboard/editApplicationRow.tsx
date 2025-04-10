@@ -6,8 +6,8 @@ import {
 } from "@/ui/components/table";
 import {
   ChevronDownIcon,
-  PencilIcon,  
-} from "@/ui/icons";
+  PencilIcon
+} from "@heroicons/react/24/outline";
 import React, { useState, useEffect, useRef, useActionState } from "react";
 import { Application } from "@/lib/definitions";
 import Button from "@/ui/components/button";
@@ -140,7 +140,7 @@ export default function PopulateTableRow({
                   className="dark:bg-dark-900"
                 />
                 <span className="absolute text-gray-500 -translate-y-1/2 pointer-events-none right-3 top-1/2 dark:text-gray-400">
-                  <ChevronDownIcon />
+                  <ChevronDownIcon width={24} height={24}/>
                 </span>
                 <div id="status-error" aria-live="polite" aria-atomic="true">
                   {state?.errors?.status &&
@@ -218,7 +218,7 @@ export default function PopulateTableRow({
             document.getElementById('table-container')?.scrollTo({ left: 0, behavior: 'smooth' });
           }}
         >
-          <PencilIcon className="w-5"/>
+          <PencilIcon width={24} height={24}/>
         </Button>
         <DeleteButton applicationId={application.id} />
       </TableCell>

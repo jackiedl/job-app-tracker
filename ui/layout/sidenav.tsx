@@ -1,13 +1,11 @@
 "use client"
 
-import {
+import { 
   ChevronDownIcon,
-  HorizontaLDots,
-  GridIcon,
-  SignOutIcon,
-  LogoIcon,
-  Logo,
-} from "@/ui/icons";
+  EllipsisHorizontalIcon,
+  Squares2X2Icon,
+  ArrowLeftEndOnRectangleIcon
+ } from "@heroicons/react/24/outline";
 
 import React, { useEffect, useRef, useState,useCallback } from "react";
 import Link from "next/link";
@@ -24,7 +22,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <GridIcon />,
+    icon: <Squares2X2Icon width={20} height={20}/>,
     name: "Dashboard",
     path: "/dashboard",
   },
@@ -227,8 +225,10 @@ const Sidenav: React.FC = () => {
       ))}
       {menuType === "others" ?       
       <li key={"Sign Out"} className="menu-item group menu-item-inactive cursor-pointer" onClick={() => SignOut()}>
-          <span className="menu-item-icon-inactive"><SignOutIcon/></span>
-          <span className="menu-item-text">Sign Out</span>
+          <span className="menu-item-icon-inactive"><ArrowLeftEndOnRectangleIcon width={24} height={24}/></span>
+          {(isExpanded || isHovered || isMobileOpen) && (
+            <span className={`menu-item-text text-nowrap`}>Sign Out</span>
+          )}
       </li> : null}
     </ul>
   );
@@ -256,25 +256,31 @@ const Sidenav: React.FC = () => {
         <Link href="/">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
-              <Logo 
-                className="dark:hidden"
-                alt="Logo"
-                width={150}
-                height={40}
-              />
-              <Logo
-                className="hidden dark:block"
-                alt="Logo"
-                width={150}
-                height={40}
-              />
+              <svg width="132" height="32" viewBox="0 0 132 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:hidden">
+                <rect x="0" y="0" width="32" height="32" rx="5" fill="#465FFF"/>
+                <rect x="6" y="6" width="20" height="20" rx="3" fill="white"/>
+                <path d="M10 10h12M10 14h8" stroke="#465FFF" strokeWidth="2" strokeLinecap="round"/>
+                <circle cx="22" cy="22" r="4" fill="white" stroke="#465FFF" strokeWidth="2"/>
+                <path d="M20 22l1 1 2-2" stroke="#465FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <text x="40" y="25" fontSize="24" fontWeight="bold" fill="#465FFF" fontFamily="Arial, sans-serif">Trackr</text>
+              </svg>
+              <svg width="132" height="32" viewBox="0 0 132 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden dark:block">
+              <rect x="0" y="0" width="32" height="32" rx="5" fill="#465FFF"/>
+                <rect x="6" y="6" width="20" height="20" rx="3" fill="white"/>
+                <path d="M10 10h12M10 14h8" stroke="#465FFF" strokeWidth="2" strokeLinecap="round"/>
+                <circle cx="22" cy="22" r="4" fill="white" stroke="#465FFF" strokeWidth="2"/>
+                <path d="M20 22l1 1 2-2" stroke="#465FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <text x="40" y="25" fontSize="24" fontWeight="bold" fill="#465FFF" fontFamily="Arial, sans-serif">Trackr</text>
+              </svg>
             </>
           ) : (
-            <LogoIcon 
-              alt="Logo icon"
-              width={32}
-              height={32}
-            />
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="32" height="32" rx="5" fill="#465FFF"/>
+              <rect x="6" y="6" width="20" height="20" rx="3" fill="white"/>
+              <path d="M10 10h12M10 14h8" stroke="#465FFF" strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="22" cy="22" r="4" fill="white" stroke="#465FFF" strokeWidth="2"/>
+              <path d="M20 22l1 1 2-2" stroke="#465FFF" strokeWidth="2" stroke-linecap="round" strokeLinejoin="round"/>
+            </svg>
           )}
         </Link>
       </div>
@@ -292,7 +298,7 @@ const Sidenav: React.FC = () => {
                 {isExpanded || isHovered || isMobileOpen ? (
                   "Menu"
                 ) : (
-                  <HorizontaLDots />
+                  <EllipsisHorizontalIcon width={20} height={20}/>
                 )}
               </h2>
               {renderMenuItems(navItems, "main")}
@@ -308,7 +314,7 @@ const Sidenav: React.FC = () => {
                 {isExpanded || isHovered || isMobileOpen ? (
                   "Others"
                 ) : (
-                  <HorizontaLDots />
+                  <EllipsisHorizontalIcon width={20} height={20}/>
                 )}
               </h2>
               {renderMenuItems(othersItems, "others")}

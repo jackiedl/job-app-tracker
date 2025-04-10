@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@/ui/components/button";
-import { TrashIcon } from "../icons";
+import {
+  TrashIcon
+} from "@heroicons/react/24/outline";
 import { deleteApplication } from "@/lib/actions";
 
 export default function DeleteButton({
@@ -34,14 +36,14 @@ export default function DeleteButton({
         className={`${isOpen ? "hidden" : ""} rounded-md border p-2 hover:bg-gray-100 dark:bg-brand-400 dark:hover:bg-brand-300 dark:border-brand-500`}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-          <TrashIcon className="w-5"/>
+          <TrashIcon width={24} height={24}/>
       </Button>
       {isOpen && (
         <Button
           className="rounded-md border p-2 font-semibold text-[#fa5e55] hover:bg-gray-100 dark:bg-[#212830] dark:hover:bg-[#3d4a58]"
           onClick={() => deleteApplication(applicationId)}
         >
-           <TrashIcon className="w-5"/>
+           <TrashIcon width={24} height={24}/>
         </Button>
       )}
     </div>

@@ -3,7 +3,6 @@ import { ThemeToggleButton } from "../components/themeButton";
 import { useSidenav } from "@/context/sidenavContext";
 import Link from "next/link";
 import React, { useState ,useEffect,useRef} from "react";
-import { Logo } from "@/ui/icons";
 
 const Header: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
@@ -82,20 +81,22 @@ const Header: React.FC = () => {
           </button>
 
           <Link href="/" className="lg:hidden">
-            <Logo
-              width={154}
-              height={32}
-              className="dark:hidden"
-              src="logo.svg"
-              alt="Logo"
-            />
-            <Logo
-              width={154}
-              height={32}
-              className="hidden dark:block"
-              src="logo.svg"
-              alt="Logo"
-            />
+            <svg width="132" height="32" viewBox="0 0 132 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:hidden">
+              <rect x="0" y="0" width="32" height="32" rx="5" fill="#465FFF"/>
+              <rect x="6" y="6" width="20" height="20" rx="3" fill="white"/>
+              <path d="M10 10h12M10 14h8" stroke="#465FFF" strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="22" cy="22" r="4" fill="white" stroke="#465FFF" strokeWidth="2"/>
+              <path d="M20 22l1 1 2-2" stroke="#465FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <text x="40" y="25" fontSize="24" fontWeight="bold" fill="#465FFF" fontFamily="Arial, sans-serif">Trackr</text>
+            </svg>
+            <svg width="132" height="32" viewBox="0 0 132 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden dark:block">
+            <rect x="0" y="0" width="32" height="32" rx="5" fill="#465FFF"/>
+              <rect x="6" y="6" width="20" height="20" rx="3" fill="white"/>
+              <path d="M10 10h12M10 14h8" stroke="#465FFF" strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="22" cy="22" r="4" fill="white" stroke="#465FFF" strokeWidth="2"/>
+              <path d="M20 22l1 1 2-2" stroke="#465FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <text x="40" y="25" fontSize="24" fontWeight="bold" fill="#465FFF" fontFamily="Arial, sans-serif">Trackr</text>
+            </svg>
           </Link>
 
           <button

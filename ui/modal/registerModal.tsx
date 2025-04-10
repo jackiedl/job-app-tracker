@@ -2,22 +2,19 @@
 import React, { useState } from "react";
 import { Modal, useModal } from "../components/modal";
 import Button from "../components/button";
-import { EyeCloseIcon, EyeIcon, SignOutIcon } from "../icons";
+import { EyeSlashIcon, EyeIcon, ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
 import Input from "../components/input";
 import { useActionState } from "react";
 import { register } from "@/lib/actions";
-import { useSearchParams } from "next/navigation";
 
 export default function RegisterModal() {
   const { isOpen, openModal, closeModal } = useModal();
   const [showPassword, setShowPassword] = useState(false);
 
-    const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get('callbackUrl') || '/';
-    const [errorMessage, formAction, isPending] = useActionState(
-      register,
-      undefined,
-    );
+  const [errorMessage, formAction, isPending] = useActionState(
+    register,
+    undefined,
+  );
   return (
     <>
       <Button 
@@ -25,7 +22,7 @@ export default function RegisterModal() {
         onClick={openModal}
         children={
         <>
-          <SignOutIcon className="-rotate-180"/> 
+          <ArrowLeftEndOnRectangleIcon width={24} height={24} className="-rotate-180"/> 
           <p className="text-sm dark:text-gray-400">
             Register
           </p>
@@ -69,15 +66,14 @@ export default function RegisterModal() {
                   className="absolute z-30 -translate-y-1/2 cursor-pointer right-4 top-1/2"
                 >
                   {showPassword ? (
-                    <EyeIcon className="fill-gray-500 dark:fill-gray-400" />
+                    <EyeIcon width={20} height={20} className="text-gray-500 dark:text-gray-400" />
                   ) : (
-                    <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400" />
+                    <EyeSlashIcon width={20} height={20} className="text-gray-500 dark:text-gray-400" />
                   )}
                 </span>
               </div>
             </div>
             <div>
-              <input type="hidden" name="redirectTo" value={callbackUrl} />
               <Button 
                 className="px-4 py-3 text-sm inline-flex items-center justify-center font-medium gap-2 rounded-lg transition bg-brand-500 text-white shadow-theme-xs hover:bg-brand-600 disabled:bg-brand-300 w-full" 
                 aria-disabled={isPending}

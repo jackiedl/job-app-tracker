@@ -1,16 +1,15 @@
 import { 
-  AlertIcon, 
-  CalenderIcon, 
-  GroupIcon,
-  PageIcon,
-
-} from "../icons";
+  ExclamationTriangleIcon, 
+  CalendarIcon,
+  ChatBubbleLeftIcon,
+  CheckBadgeIcon
+} from "@heroicons/react/24/outline";
 
 const iconMap = {
-  applied: PageIcon,
-  rejected: AlertIcon,
-  interview: CalenderIcon,
-  offers: GroupIcon,
+  applied: ExclamationTriangleIcon,
+  rejected: CalendarIcon,
+  interview: ChatBubbleLeftIcon,
+  offers: CheckBadgeIcon,
 };
 
 const colorMap = {

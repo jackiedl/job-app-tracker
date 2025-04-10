@@ -5,9 +5,12 @@ import Button from "@/ui/components/button";
 import Input from "@/ui/components/input";
 import { useActionState } from "react";
 import { createApplication, ApplicationState } from "@/lib/actions";
-import { ChevronDownIcon, PlusIcon } from "../icons";
 import Select from "@/ui/components/select";
 import TextArea from "@/ui/components/textarea";
+import { 
+  ChevronDownIcon,
+  PlusIcon
+ } from "@heroicons/react/24/outline";
 
 export default function AddApplicationModal({
   userId
@@ -45,7 +48,7 @@ export default function AddApplicationModal({
         onClick={openModal}
         className="rounded-md border p-2 dark:bg-brand-400 dark:hover:bg-brand-300 dark:border-brand-500" 
       >
-        <PlusIcon/>
+        <PlusIcon width={24} height={24}/>
       </Button>
       <Modal
         isOpen={isOpen}
@@ -109,7 +112,7 @@ export default function AddApplicationModal({
                   className="dark:bg-dark-900"
                 />
                 <span className="absolute text-gray-500 -translate-y-1/2 pointer-events-none right-3 top-1/2 dark:text-gray-400">
-                  <ChevronDownIcon />
+                  <ChevronDownIcon width={24} height={24}/>
                 </span>
               </div>
               <div id="status-error" aria-live="polite" aria-atomic="true">

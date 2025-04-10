@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRightIcon } from '@/ui/icons';
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from "next/navigation"
@@ -107,9 +107,9 @@ function PaginationDirection({
 
   const icon = 
     direction === 'left' ? (
-      <ArrowRightIcon className="-rotate-180"/>
+      <ArrowRightIcon width={20} height={20} className="-rotate-180"/>
     ) : (
-      <ArrowRightIcon className="" />
+      <ArrowRightIcon width={20} height={20} />
     );
 
   return isDisabled ? (
