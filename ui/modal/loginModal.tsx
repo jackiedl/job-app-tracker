@@ -89,8 +89,8 @@ export default function LoginModal() {
                 aria-live="polite"
                 aria-atomic="true"
               >
-                {errorMessage && (
-                  <p className="text-sm text-red-500">{errorMessage}</p>
+                {errorMessage?.message && (
+                  <p className="text-sm text-red-500">{errorMessage.message}</p>
                 )}
               </div>
             </div>
