@@ -56,7 +56,7 @@ export default function AddApplicationModal({
           <h4 className="mb-6 text-lg font-medium text-gray-800 dark:text-white/90">
             Add new application
           </h4>
-
+          {/* Company Name */}
           <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-3">
             <div className="col-span-1">
               <label className="dark:text-white/90">Company Name</label>
@@ -77,7 +77,7 @@ export default function AddApplicationModal({
                   ))}
               </div>
             </div>
-
+            {/* Role */}        
             <div className="col-span-1">
               <label className="dark:text-white/90">Role</label>
               <Input 
@@ -96,7 +96,7 @@ export default function AddApplicationModal({
                   ))}
               </div>
             </div>
-
+             {/* Status */}       
             <div className="col-span-1">
               <label className="dark:text-white/90">Status</label>
               <div className="relative">
@@ -121,7 +121,7 @@ export default function AddApplicationModal({
                   ))}
               </div>
             </div>
-
+            {/* Notes */}
             <div className="col-span-1 sm:col-span-3">
               <label className="dark:text-white/90">Notes</label>
               <TextArea
@@ -132,7 +132,7 @@ export default function AddApplicationModal({
                 rows={6}
               />
             </div>
-
+            {/* URL */}
             <div className="col-span-1 sm:col-span-3">
               <label className="dark:text-white/90">URL</label>
               <Input 

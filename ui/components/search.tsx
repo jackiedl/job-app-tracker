@@ -18,7 +18,7 @@ export default function Search({ }: { placeholder: string}) {
       params.delete('query');
     }
     replace(`${pathName}?${params.toString()}`);
-  }, 300);
+  }, 500);
 
   return (
     <form className=''>

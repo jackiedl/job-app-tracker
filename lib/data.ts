@@ -1,7 +1,11 @@
 import postgres from "postgres";
 
 
-const sql = postgres(process.env.DATABASE_URL!);
+const sql = postgres(process.env.DATABASE_URL!, {
+  max: 10, // limit pool size to avoid too many clients
+  idle_timeout: 60, // seconds
+  connect_timeout: 30, // seconds
+})
 
 export async function fetchApplicationMetrics(userId: string | undefined) {
   if (!userId) {

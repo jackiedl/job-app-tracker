@@ -1,6 +1,6 @@
 "use server"
 
-import { auth, signIn, signOut } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 import { z } from 'zod';
 import { redirect } from "next/navigation";
@@ -152,4 +152,20 @@ export async function createApplication(
     }
     revalidatePath('/dashboard');
     redirect('/');
+}
+
+export async function updateApplication(
+  id: string,
+  prevState: ApplicationState,
+  formData: FormData,
+) {
+
+  revalidatePath('/dashboard');
+  redirect('/');
+}
+
+export async function deleteApplication(id: string) {
+  await sql`DELETE FROM applications WHERE id = ${id};`;
+  revalidatePath('/dashboard');
+  redirect('/');
 }
