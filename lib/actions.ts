@@ -84,7 +84,6 @@ export async function register(
     email: formData.get("email"),
     password: formData.get("password"),
   })
-
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
     return {
@@ -92,7 +91,6 @@ export async function register(
       message: 'Missing Fields. Failed to Register.',
     };
   }
-
   // Prepare data for insertion into the database
   const { name, email, password } = validatedFields.data;
   const hashPassword = await bcrypt.hash(password, 10);
@@ -140,7 +138,7 @@ export async function createApplication(
 
       await sql`
         INSERT INTO applications (user_id, company_name, role, status, url, notes, date)
-        VALUES (${id}, ${company_name}, ${role}, ${status}, ${url && url.length > 0 ? url : '{}' }, ${notes}, ${date});
+        VALUES (${id}, ${company_name}, ${role}, ${status}, ${url}, ${notes}, ${date});
       `;
 
     } catch (error) {
@@ -159,7 +157,41 @@ export async function updateApplication(
   prevState: ApplicationState,
   formData: FormData,
 ) {
+  // Validate form using Zod
+  const validatedFields = AddApplication.safeParse({
+    company_name: formData.get('company_name'),
+    role: formData.get('role'),
+    status: formData.get('status'),
+    notes: formData.get('notes'),
+    url: formData.get('url'),
+  });
+  // If form validation fails, return errors early. Otherwise, continue.
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to update application.',
+    };
+  }
 
+  const {company_name, role, status, notes, url} = validatedFields.data;
+  //const date = new Date().toISOString().split('T')[0];
+
+  try{
+    if (!id) throw Error;
+
+    await sql`
+      UPDATE applications
+      SET company_name = ${company_name}, role = ${role}, status = ${status}, notes = ${notes}, url = ${url}
+      WHERE id = ${id}
+    `;
+
+  } catch (error) {
+    // If a database error occurs, return a more specific error.
+    console.log(error);
+    return {
+      message: 'Database Error: Failed to Update Application.',
+    };
+  }
   revalidatePath('/dashboard');
   redirect('/');
 }

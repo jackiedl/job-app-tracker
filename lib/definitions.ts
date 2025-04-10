@@ -14,7 +14,7 @@ export type Application = {
   company_name: string;
   role: string;
   status: 'Applied' | 'Rejected' | 'Interview Scheduled' | 'Offer Received';
-  url: string[];
+  url: string;
   notes: string;
   date: string;
 };

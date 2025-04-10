@@ -5,15 +5,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/ui/components/table";
-import {
-  PencilIcon,  
-} from "@/ui/icons";
 import Search from "@/ui/components/search";
 import { auth } from "@/auth";
 import { fetchFilteredApplications } from "@/lib/data";
 import AddApplicationModal from "../modal/addApplicationModal";
-import DeleteButton from "./deleteButton";
 import React from "react";
+import PopulateTableRow from "./editApplicationRow";
 
 export default async function ApplicationTable({
   query,
@@ -42,38 +39,7 @@ export default async function ApplicationTable({
       <TableBody className="divide-y divide-gray-100 dark:divide-gray-800">
       {
         applications.map((app:any) => (
-          <React.Fragment key={app.id}>
-            <TableRow className="">
-              <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                  {app.company_name}
-              </TableCell>
-              <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                  {app.role}
-              </TableCell>
-              <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                  {app.status}
-              </TableCell>
-              <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-              {formatDate(app.date.toString())}
-              </TableCell>
-              <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                  {app.notes}
-              </TableCell>
-              <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                {app.url}
-              </TableCell>
-              <TableCell className="flex justify-end gap-3">
-                <button type="submit" className="rounded-md border p-2 hover:bg-gray-100 dark:bg-brand-400 dark:hover:bg-brand-300 dark:border-brand-500">
-                  <span className="sr-only">Update</span>
-                  <PencilIcon className="w-5"/>
-                </button>
-                <DeleteButton applicationId={app.id} />
-              </TableCell>
-            </TableRow>
-            <form key={app.id}>
-              
-            </form>
-          </React.Fragment>
+          <PopulateTableRow key={app.id} application={app} />
         ))
       }
       </TableBody>
@@ -93,7 +59,7 @@ export default async function ApplicationTable({
           <AddApplicationModal userId={session?.user?.id}/>
         </div>
       </div>
-      <div className="max-w-full overflow-x-auto">
+      <div id="table-container" className="max-w-full overflow-x-auto">
         <div className="md-hidden">
         </div>
         <Table className="w-full text-left table-auto min-w-max">

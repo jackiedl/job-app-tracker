@@ -1,9 +1,9 @@
 "use client"
 import { ThemeToggleButton } from "../components/themeButton";
 import { useSidenav } from "@/context/sidenavContext";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState ,useEffect,useRef} from "react";
+import { Logo } from "@/ui/icons";
 
 const Header: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
@@ -82,14 +82,14 @@ const Header: React.FC = () => {
           </button>
 
           <Link href="/" className="lg:hidden">
-            <Image
+            <Logo
               width={154}
               height={32}
               className="dark:hidden"
               src="logo.svg"
               alt="Logo"
             />
-            <Image
+            <Logo
               width={154}
               height={32}
               className="hidden dark:block"
