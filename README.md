@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+###### Check out the demo
 
-## Getting Started
+Open [trackr-two.vercel.app/](trackr-two.vercel.app/) to view it in the browser.
 
-First, run the development server:
+# Trackr
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a web application job application tracker with features for managing application entries.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Details
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project was bootstrapped with Next.js, Tailwind CSS, and PostgreSQL, hosted on Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Preview
 
-## Learn More
+![Home Page](public/preview/homepage.png)
 
-To learn more about Next.js, take a look at the following resources:
+![Dashboard](public/preview/dashboard.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation & Set Up
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the Repository
 
-## Deploy on Vercel
+   ```sh
+   git clone https://github.com/jackiedl/job-app-tracker.git
+   cd job-application-tracker
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install Dependencies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```sh
+   npm install
+   ```
+
+3. Configure Environment Variables
+
+   ```env
+   # .env.local
+
+   DATABASE_URL=postgresql://<user>:<password>@<host>:<port>/<database>?schema=public
+   AUTH_SECRET=your-secret-key
+   AUTH_URL=http://localhost:3000/api/auth
+   ```
+
+4. Run Development Server
+
+   ```sh
+   pnpm run
+   ```
+Open http://localhost:3000 in your browser.
+
+5. (Optional) Seed your database
+
+    Navigate to localhost:3000/seed in your browser. When finished, you will see a message "Database seeded successfully" in the browser. 
